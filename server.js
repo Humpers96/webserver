@@ -26,8 +26,9 @@ app.get('/', (req, res) => {
     res.render('nothing_here')
 })
 
-// Exposing my API
+// Exposing my API & website
 app.use('/api', api_routes)
+app.use('/home', website_routes)
 
 // PORT
 const port = process.env.PORT || 4237
