@@ -1,39 +1,46 @@
 // Express setup
-const express = require('express')
-const app = express()
+import Express from 'express';
+const app = Express();
 
-// Path setup
-const path = require('path')
+// Library includes
+import path from 'path';
+import ExpressHandlebars from 'express-handlebars';
 
 // Routes setup
-const api_routes = require('./routes/api/api')
-const website_routes = require('./routes/website/website')
+import { API } from "./routes/api/api.js";
+import { WEBSITE } from "./routes/website/website.js";
+//import { TEST } from "./routes/test_route.js";
 
 // Static folder setup
-app.use(express.static(path.join(__dirname,'public')))
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const static_folder_path = path.join(dirname(fileURLToPath(import.meta.url)) + "/static");
+app.use(Express.static(static_folder_path));
 
 // Handlbars setup
-const hbs = require('express-handlebars')
-app.set('view engine', 'handlebars')
-app.engine('handlebars', hbs(
+app.set('view engine', 'handlebars');
+app.engine('handlebars', ExpressHandlebars(
     {
         defaultLayout: "index"
     }
-))
+));
 
 // Landing page server status response
 app.get('/', (req, res) => {
-    res.render('nothing_here')
-})
+    res.render('nothing_here');
+});
 
 // Exposing my API & website
-app.use('/api', api_routes)
-app.use('/home', website_routes)
+app.use('/api', API);
+app.use('/home', WEBSITE);
+
+// Test Route
+ //app.use('/test', TEST);
 
 // PORT
-const port = process.env.PORT || 4237
+const port = process.env.PORT || 4237;
 
 // Run server
 app.listen(port, () => {
-    console.log('Listening on port: ' + port)
-})
+    console.log('Listening on port: ' + port);
+});
