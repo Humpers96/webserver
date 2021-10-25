@@ -6,4 +6,9 @@ export default class Endpoint
         this.url = url;
         this.verb = verb;
     }
+
+    response()
+    {
+        
+    }
 }
