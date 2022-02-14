@@ -20,10 +20,10 @@
   },
   "homepage": "https://github.com/Humpers96/webserver#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "express-handlebars": "^5.3.4"
+    "express": "^4.17.2",
+    "express-handlebars": "^5.3.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.15"
   }
 }

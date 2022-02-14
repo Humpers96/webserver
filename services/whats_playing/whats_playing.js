@@ -1,9 +1,8 @@
 import Agent from 'https';
-import { LASTFM_API_KEY } from "../secrets.js"
 
 const http_options = {
     hostname: "ws.audioscrobbler.com",
-    path: `/2.0/?method=user.getrecenttracks&user=bbcradio1&api_key=${LASTFM_API_KEY}&format=json&limit=1`,
+    path: `/2.0/?method=user.getrecenttracks&user=bbcradio1&api_key=7be604c6ca75b304dd4a9fe28a057f06&format=json&limit=1`,
     method: 'GET',
     port: 443
 };
