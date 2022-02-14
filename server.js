@@ -9,7 +9,6 @@ import ExpressHandlebars from 'express-handlebars';
 // Routes setup
 import { API } from "./routes/api/api.js";
 import { WEBSITE } from "./routes/website/website.js";
-//import { TEST } from "./routes/test_route.js";
 
 // Static folder setup
 import { dirname } from 'path';
@@ -33,9 +32,6 @@ app.get('/', (req, res) => {
 // Exposing my API & website
 app.use('/api', API);
 app.use('/home', WEBSITE);
-
-// Test Route
- //app.use('/test', TEST);
 
 // PORT
 const port = process.env.PORT || 4237;
